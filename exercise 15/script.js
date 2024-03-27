@@ -1,3 +1,5 @@
+const currPlayerEle = document.getElementById('current-player')
+const winnerDisplayEle = document.getElementById('winner-display')
 
 var board;
 var playerO = "O";
@@ -59,6 +61,10 @@ function setTile() {
         currPlayer = playerO;
     }
 
+    currPlayerEle.innerHTML = currPlayer
+    console.log(currPlayer)
+
+
     //check winner
     checkWinner();
 }
@@ -74,6 +80,7 @@ function checkWinner() {
                 let tile = document.getElementById(r.toString() + "-" + i.toString());
                 tile.classList.add("winner");
             }
+            winnerDisplayEle.innerHTML = 'Player ' + (currPlayer.localeCompare('X') ? 'X' : 'O') + ' Wins'
             gameOver = true;
             return;
         }
@@ -88,6 +95,7 @@ function checkWinner() {
                 let tile = document.getElementById(i.toString() + "-" + c.toString());
                 tile.classList.add("winner");
             }
+            winnerDisplayEle.innerHTML = 'Player ' + (currPlayer.localeCompare('X') ? 'X' : 'O') + ' Wins'
             gameOver = true;
             return;
         }
@@ -99,6 +107,7 @@ function checkWinner() {
             let tile = document.getElementById(i.toString() + "-" + i.toString());
             tile.classList.add("winner");
         }
+        winnerDisplayEle.innerHTML = 'Player ' + (currPlayer.localeCompare('X') ? 'X' : 'O') + ' Wins'
         gameOver = true;
         return;
     }
@@ -116,6 +125,8 @@ function checkWinner() {
         //2-0
         tile = document.getElementById("2-0");
         tile.classList.add("winner");
+
+        winnerDisplayEle.innerHTML = 'Player ' + (currPlayer.localeCompare('X') ? 'X' : 'O') + ' Wins'
         gameOver = true;
         return;
     }
