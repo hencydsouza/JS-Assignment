@@ -131,11 +131,11 @@ for (let i = 0; i < filterEle.length; i++) {
     filterEle[i].addEventListener('click', () => {
         let rate = Number(filterEle[i].innerHTML.split(' ')[0])
         let type = filterEle[i].id.split('-')[0]
-        filter(type, rate)
+        filterFunc(type, rate)
     })
 }
 
-function filter(type, rate) {
+function filterFunc(type, rate) {
     file = original
     file = file.filter(movie => {
         if (type === 'imdb') {
